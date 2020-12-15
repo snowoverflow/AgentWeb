@@ -1,6 +1,4 @@
-apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'com.android.library'
-apply plugin: 'maven'
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION.toInteger()
@@ -43,12 +41,5 @@ dependencies {
     compileOnly "com.android.support:support-v4:${SUPPORT_LIB_VERSION}"
     compileOnly fileTree(include: ['*.jar'], dir: 'providedLibs')
 }
-publish {
-    userOrg = 'just'
-    groupId = 'com.just.agentweb'
-    artifactId = 'agentweb'
-    publishVersion = '4.1.4'
-    desc = 'very easy to build you web page'
-    website = "https://github.com/Justson/AgentWeb"
 
-}
+apply from: "../JitPackUpload.gradle"
